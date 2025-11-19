@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone, Linkedin, Twitter } from 'lucide-react';
+import { useState } from 'react';
 
 const COMMUNITY_INVITE_URL = 'https://discord.gg/hHvRzMxw';
 
@@ -16,6 +17,43 @@ const scrollToServices = () => {
 };
 
 export default function Footer() {
+  const [subscribeEmail, setSubscribeEmail] = useState('');
+  const [subscribeStatus, setSubscribeStatus] = useState<'idle'|'sending'|'success'|'error'>('idle');
+  const [subscribeError, setSubscribeError] = useState('');
+
+  const handleSubscribe = async (e?: React.FormEvent) => {
+    if (e && typeof e.preventDefault === 'function') e.preventDefault();
+    if (!subscribeEmail) return;
+    setSubscribeStatus('sending');
+    setSubscribeError('');
+    try {
+      const res = await fetch('/.netlify/functions/send-mailjet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'subscribe', email: subscribeEmail })
+      });
+
+      const text = await res.text();
+      let json: any = {};
+      try {
+        json = text ? JSON.parse(text) : {};
+      } catch (e) {
+        json = { raw: text };
+      }
+
+      if (!res.ok) {
+        const msg = (json && (json.error || json.message)) || `Subscription failed: ${res.status}`;
+        throw new Error(msg);
+      }
+
+      setSubscribeStatus('success');
+      setSubscribeEmail('');
+    } catch (err) {
+      setSubscribeStatus('error');
+      setSubscribeError(err instanceof Error ? err.message : 'Unable to subscribe');
+    }
+  };
+
   return (
     <footer className="bg-gray-950 text-white">
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
@@ -25,11 +63,11 @@ export default function Footer() {
             Strategy, design, engineering, marketing, and cloud expertise inside one collaborative collective.
           </p>
           <div className="flex gap-4">
-            <a
+              <a
               href="https://www.linkedin.com"
               target="_blank"
               rel="noreferrer"
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition"
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition bg-unmakt-dark-2/20"
             >
               <Linkedin size={18} />
             </a>
@@ -37,7 +75,7 @@ export default function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noreferrer"
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition"
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition bg-unmakt-dark-2/20"
             >
               <Twitter size={18} />
             </a>
@@ -79,15 +117,15 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-4">Contact</h3>
           <ul className="space-y-3 text-gray-400">
             <li className="flex gap-3">
-              <Mail size={18} className="text-blue-400 flex-shrink-0 mt-0.5" />
+              <Mail size={18} className="text-unmakt-2 flex-shrink-0 mt-0.5" />
               unmakt.info@gmail.com
             </li>
             <li className="flex gap-3">
-              <Phone size={18} className="text-blue-400 flex-shrink-0 mt-0.5" />
+              <Phone size={18} className="text-unmakt-2 flex-shrink-0 mt-0.5" />
               +1 (415) 555-0149
             </li>
             <li className="flex gap-3">
-              <MapPin size={18} className="text-blue-400 flex-shrink-0 mt-0.5" />
+              <MapPin size={18} className="text-unmakt-2 flex-shrink-0 mt-0.5" />
               Remote collective • Available worldwide
             </li>
           </ul>
@@ -98,18 +136,22 @@ export default function Footer() {
           <p className="text-gray-400 mb-4">
             Get quarterly insights on emerging tech, AI automation, and growth tactics.
           </p>
-          <form className="space-y-3">
+          <form className="space-y-3" onSubmit={(e) => handleSubscribe(e)}>
             <input
               type="email"
               placeholder="Email address"
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:ring-2 focus:ring-blue-500 outline-none"
+              value={subscribeEmail}
+              onChange={(e) => setSubscribeEmail(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:ring-2 focus:ring-unmakt-2 outline-none"
             />
             <button
-              type="button"
-              className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 font-semibold hover:shadow-lg transition"
+              type="submit"
+              className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 font-semibold hover:shadow-lg transition"
             >
-              Subscribe
+              {subscribeStatus === 'sending' ? 'Subscribing...' : 'Subscribe'}
             </button>
+            {subscribeStatus === 'success' && <div className="text-sm text-green-400">Subscribed — thank you!</div>}
+            {subscribeStatus === 'error' && <div className="text-sm text-red-400">{subscribeError}</div>}
           </form>
         </div>
       </div>

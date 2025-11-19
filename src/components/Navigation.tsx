@@ -45,7 +45,7 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
         scrolled
-          ? 'bg-white/10 backdrop-blur-xl border-transparent shadow-none'
+          ? 'bg-black/30 backdrop-blur-xl border-transparent shadow-none'
           : 'bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm'
       }`}
     >
@@ -56,18 +56,18 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
             className="flex items-center gap-3"
             aria-label="Go to Unmakt home"
           >
-            <img src="/Unmakt.png" alt="Unmakt logo" className="h-16 w-auto drop-shadow-xl mix-blend-multiply" />
+            <img src="/Unmakt.png" alt="Unmakt logo" className="h-12 md:h-16 w-auto drop-shadow-xl mix-blend-multiply" />
           </button>
 
-          <div className="hidden md:flex items-center space-x-8 text-gray-900">
+          <div className={`hidden md:flex items-center space-x-8 transition-colors ${scrolled ? 'text-white' : 'text-gray-900'}`}>
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavigate(item.id)}
                 className={`transition-colors ${
                   currentPage === item.id
-                    ? 'text-blue-600 font-semibold'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-unmakt-2 font-semibold'
+                    : 'text-current hover:text-unmakt-2'
                 }`}
               >
                 {item.label}
@@ -79,12 +79,12 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
               onMouseLeave={() => setServicesOpen(false)}
             >
               <button
-                className="flex items-center gap-2 text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+                className="flex items-center gap-2 text-current hover:text-unmakt-2 font-semibold transition-colors"
               >
                 Services
                 <ChevronDown
                   size={16}
-                  className={`transition-transform ${servicesOpen ? 'rotate-180 text-blue-600' : ''}`}
+                  className={`transition-transform ${servicesOpen ? 'rotate-180 text-unmakt-2' : ''}`}
                 />
               </button>
               {servicesOpen && (
@@ -92,12 +92,12 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
                   <div className="w-64 rounded-2xl border border-gray-100 bg-white shadow-2xl p-4 space-y-1">
                     {services.map((service) => (
                       <button
-                        key={service.id}
-                        onClick={() => handleServicesNavigate(`service-${service.id}`)}
-                        className="block w-full text-left px-3 py-2 rounded-xl text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                      >
-                        {service.title}
-                      </button>
+                          key={service.id}
+                          onClick={() => handleServicesNavigate(`service-${service.id}`)}
+                          className="block w-full text-left px-3 py-2 rounded-xl text-sm text-current hover:bg-unmakt-1/10 hover:text-unmakt-2 transition"
+                        >
+                          {service.title}
+                        </button>
                     ))}
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
 
             <button
               onClick={() => handleNavigate(isAuthenticated ? 'dashboard' : 'login')}
-              className="ml-4 px-4 py-2 rounded-full border border-gray-200 text-sm font-semibold hover:border-blue-500 hover:text-blue-600 transition"
+              className="ml-4 px-4 py-2 rounded-full border border-gray-200 text-sm font-semibold hover:border-unmakt-2 hover:text-unmakt-2 transition"
             >
               {isAuthenticated ? 'Dashboard' : 'Login'}
             </button>
@@ -130,8 +130,8 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
                 onClick={() => handleNavigate(item.id)}
                 className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
                   currentPage === item.id
-                    ? 'bg-blue-50 text-blue-600 font-semibold'
-                    : 'text-gray-700 hover:bg-gray-50'
+                    ? 'bg-unmakt-1/10 text-unmakt-2 font-semibold'
+                    : 'text-unmakt-dark hover:bg-unmakt-1/10'
                 }`}
               >
                 {item.label}
@@ -139,14 +139,14 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
             ))}
             <button
               onClick={() => handleNavigate(isAuthenticated ? 'dashboard' : 'login')}
-              className="block w-full text-left px-4 py-2 rounded-lg border border-gray-100 font-semibold text-gray-700 hover:bg-gray-50"
+                className="block w-full text-left px-4 py-2 rounded-lg border border-gray-100 font-semibold text-unmakt-dark hover:bg-unmakt-1/10"
             >
               {isAuthenticated ? 'Dashboard' : 'Login'}
             </button>
             <div className="border-t border-gray-100 pt-4">
               <button
                 onClick={() => setMobileServicesOpen((prev) => !prev)}
-                className="flex w-full items-center justify-between px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-50"
+                className="flex w-full items-center justify-between px-4 py-2 rounded-lg text-unmakt-dark hover:bg-unmakt-1/10"
               >
                 <span>Services</span>
                 <ChevronDown

@@ -26,7 +26,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
         }`}
       >
         <div className={`space-y-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/30">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white shadow-lg shadow-unmakt-2/30">
             <Icon size={32} />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
@@ -38,7 +38,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
           <div className="space-y-3">
             {service.features.map((feature, idx) => (
               <div key={idx} className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-cyan-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-6 h-6 text-unmakt-3 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700 text-lg">{feature}</span>
               </div>
             ))}

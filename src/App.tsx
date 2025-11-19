@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import JoinCommunity from './pages/JoinCommunity';
+import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import { useAuth } from './context/AuthContext';
@@ -34,6 +35,8 @@ function App() {
         return <About />;
       case 'join':
         return <JoinCommunity />;
+      case 'contact':
+        return <Contact />;
       case 'login':
         return <Login />;
       case 'dashboard':

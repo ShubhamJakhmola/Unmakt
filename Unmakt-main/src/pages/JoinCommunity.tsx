@@ -47,14 +47,14 @@ export default function JoinCommunity() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 pt-24 pb-16 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-unmakt-1/10 via-white to-unmakt-3/10 pt-24 pb-16 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center space-y-6 mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 text-white mx-auto">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white mx-auto">
             <UserPlus size={32} />
           </div>
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900">
-            Join Our <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Community</span>
+            Join Our <span className="bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 bg-clip-text text-transparent">Community</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Are you a talented developer, designer, marketer, or cloud specialist?
@@ -77,7 +77,7 @@ export default function JoinCommunity() {
               </p>
               <button
                 onClick={() => setStatus('idle')}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all"
+                className="px-8 py-3 bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all"
               >
                 Submit Another Application
               </button>
@@ -94,7 +94,7 @@ export default function JoinCommunity() {
                   required
                   value={formData.name}
                   onChange={(e) => handleChange('name', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-unmakt-2 focus:ring-2 focus:ring-unmakt-2 focus:ring-opacity-20 outline-none transition-all"
                   placeholder="John Doe"
                 />
               </div>
@@ -109,7 +109,7 @@ export default function JoinCommunity() {
                   required
                   value={formData.email}
                   onChange={(e) => handleChange('email', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-unmakt-2 focus:ring-2 focus:ring-unmakt-2 focus:ring-opacity-20 outline-none transition-all"
                   placeholder="john@example.com"
                 />
               </div>
@@ -124,7 +124,7 @@ export default function JoinCommunity() {
                   required
                   value={formData.skills}
                   onChange={(e) => handleChange('skills', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-unmakt-2 focus:ring-2 focus:ring-unmakt-2 focus:ring-opacity-20 outline-none transition-all"
                   placeholder="e.g., React, Node.js, AWS, Digital Marketing"
                 />
               </div>
@@ -139,7 +139,7 @@ export default function JoinCommunity() {
                   required
                   value={formData.experience}
                   onChange={(e) => handleChange('experience', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-unmakt-2 focus:ring-2 focus:ring-unmakt-2 focus:ring-opacity-20 outline-none transition-all"
                   placeholder="e.g., 5 years"
                 />
               </div>
@@ -153,7 +153,7 @@ export default function JoinCommunity() {
                   id="portfolio"
                   value={formData.portfolio}
                   onChange={(e) => handleChange('portfolio', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-unmakt-2 focus:ring-2 focus:ring-unmakt-2 focus:ring-opacity-20 outline-none transition-all"
                   placeholder="https://yourportfolio.com"
                 />
               </div>
@@ -168,7 +168,7 @@ export default function JoinCommunity() {
                   value={formData.message}
                   onChange={(e) => handleChange('message', e.target.value)}
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-600 focus:ring-opacity-20 outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-unmakt-2 focus:ring-2 focus:ring-unmakt-2 focus:ring-opacity-20 outline-none transition-all resize-none"
                   placeholder="Tell us about your experience and what you can bring to our community..."
                 />
               </div>
@@ -183,7 +183,7 @@ export default function JoinCommunity() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full px-8 py-4 bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {status === 'submitting' ? 'Submitting...' : 'Submit Application'}
               </button>
@@ -193,15 +193,15 @@ export default function JoinCommunity() {
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">Flexible</div>
+            <div className="text-3xl font-bold text-unmakt-2 mb-2">Flexible</div>
             <p className="text-gray-600">Work on your own schedule</p>
           </div>
           <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
-            <div className="text-3xl font-bold text-cyan-600 mb-2">Collaborative</div>
+            <div className="text-3xl font-bold text-unmakt-3 mb-2">Collaborative</div>
             <p className="text-gray-600">Join a community of experts</p>
           </div>
           <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">Rewarding</div>
+            <div className="text-3xl font-bold text-unmakt-2 mb-2">Rewarding</div>
             <p className="text-gray-600">Work on exciting projects</p>
           </div>
         </div>

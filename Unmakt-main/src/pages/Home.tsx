@@ -20,15 +20,15 @@ export default function Home() {
   return (
     <div className="bg-white">
       <div
-        className="fixed top-16 left-0 h-1 bg-gradient-to-r from-blue-600 to-cyan-600 transition-all duration-300 z-40"
+        className="fixed top-16 left-0 h-1 bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 transition-all duration-300 z-40"
         style={{ width: `${scrollProgress}%` }}
       />
 
-      <section className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+      <section className="min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-unmakt-1/10 via-white to-unmakt-3/10">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight">
             Transform Your
-            <span className="block bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 bg-clip-text text-transparent">
               Digital Vision
             </span>
           </h1>
@@ -39,13 +39,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <button
               onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all"
+              className="px-8 py-4 bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all"
             >
               Explore Services
             </button>
             <a
               href="#contact"
-              className="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-full font-semibold hover:bg-blue-50 transition-all"
+                className="px-8 py-4 border-2 border-unmakt-2 text-unmakt-2 rounded-full font-semibold hover:bg-unmakt-1/10 transition-all"
             >
               Get Started
             </a>
