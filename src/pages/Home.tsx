@@ -38,35 +38,35 @@ export default function Home() {
         style={{ width: `${scrollProgress}%` }}
       />
 
-      <section className="relative min-h-screen flex items-center px-4 overflow-hidden bg-slate-950 text-white">
+      <section className="relative min-h-screen flex items-center px-4 pt-24 overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-32 -right-20 w-96 h-96 bg-unmakt-2/40 blur-3xl rounded-full" />
           <div className="absolute bottom-0 left-0 w-[32rem] h-[32rem] bg-unmakt-2/40 blur-3xl rounded-full" />
         </div>
         <div className="relative max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+          <div className="space-y-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight break-words">
               Ship bold
-              <span className="block">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3">
+              <span className="block whitespace-normal">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 break-words">
                   {heroWords[activeWord]}
                 </span>{' '}
                 faster than ever.
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-xl">
+            <p className="text-base sm:text-lg md:text-xl text-white/80 max-w-full md:max-w-xl break-words">
               Designers, engineers, automation specialists, and marketers working as one squad to launch products, scale growth, and manage cloud infrastructure.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
               <button
                 onClick={scrollToServices}
-                className="px-8 py-4 bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white rounded-full font-semibold hover:shadow-2xl hover:-translate-y-0.5 transition-all"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white rounded-full font-semibold hover:shadow-2xl hover:-translate-y-0.5 transition-all text-center"
               >
                 View Services
               </button>
               <a
                 href="mailto:unmakt.info@gmail.com"
-                className="px-8 py-4 border border-white/30 text-white rounded-full font-semibold hover:border-white/70 transition-all"
+                className="w-full sm:w-auto inline-flex justify-center px-6 sm:px-8 py-3 sm:py-4 border border-white/30 text-white rounded-full font-semibold hover:border-white/70 transition-all text-center"
               >
                 Book a strategy call
               </a>

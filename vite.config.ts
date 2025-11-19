@@ -7,4 +7,10 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    // explicitly disable source maps for production builds to avoid exposing
+    // original source in developer tools. Vite defaults to false, but set
+    // explicitly to be safe.
+    sourcemap: false
+  }
 });
