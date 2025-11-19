@@ -65,7 +65,7 @@ export default function Home() {
                 View Services
               </button>
               <a
-                href="mailto:hello@unmakt.com"
+                href="mailto:unmakt.info@gmail.com"
                 className="px-8 py-4 border border-white/30 text-white rounded-full font-semibold hover:border-white/70 transition-all"
               >
                 Book a strategy call
@@ -111,7 +111,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:hello@unmakt.com"
+              href="mailto:unmakt.info@gmail.com"
               className="inline-flex justify-center px-8 py-4 bg-white text-gray-900 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all"
             >
               Email the team

@@ -80,7 +80,7 @@ export default function Footer() {
           <ul className="space-y-3 text-gray-400">
             <li className="flex gap-3">
               <Mail size={18} className="text-blue-400 flex-shrink-0 mt-0.5" />
-              hello@unmakt.com
+              unmakt.info@gmail.com
             </li>
             <li className="flex gap-3">
               <Phone size={18} className="text-blue-400 flex-shrink-0 mt-0.5" />

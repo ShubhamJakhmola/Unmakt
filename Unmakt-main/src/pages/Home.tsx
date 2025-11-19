@@ -70,7 +70,7 @@ export default function Home() {
           </p>
           <div className="pt-8">
             <a
-              href="mailto:hello@unmakt.com"
+              href="mailto:unmakt.info@gmail.com"
               className="inline-block px-8 py-4 bg-white text-gray-900 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all"
             >
               Contact Us

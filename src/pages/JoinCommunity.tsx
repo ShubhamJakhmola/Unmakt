@@ -19,7 +19,7 @@ export default function JoinCommunity() {
     e.preventDefault();
     if (!supabase) {
       setStatus('error');
-      setErrorMessage('Applications are temporarily unavailable. Please try again later or email hello@unmakt.com.');
+      setErrorMessage('Applications are temporarily unavailable. Please try again later or email unmakt.info@gmail.com.');
       return;
     }
 
@@ -106,8 +106,8 @@ export default function JoinCommunity() {
               </h2>
               <p className="text-xl text-gray-600 max-w-xl mx-auto">
                 We are configuring our application portal. Please reach us at{' '}
-                <a href="mailto:hello@unmakt.com" className="text-blue-600 underline">
-                  hello@unmakt.com
+                <a href="mailto:unmakt.info@gmail.com" className="text-blue-600 underline">
+                  unmakt.info@gmail.com
                 </a>{' '}
                 or check back soon.
               </p>
