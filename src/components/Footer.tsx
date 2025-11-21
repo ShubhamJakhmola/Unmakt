@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 const quickLinks = [
   { label: 'Home', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })) },
-  { label: 'About', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'about' })) },
-  { label: 'Contact', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'contact' })) },
+  { label: 'About us', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'about' })) },
+  { label: 'Contact us', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'contact' })) },
   { label: 'Privacy Policy', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'privacy' })) },
   { label: 'Terms & Conditions', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'terms' })) }
 ];
@@ -57,7 +57,7 @@ export default function Footer() {
           </p>
           <div className="flex gap-4">
             <a
-              href="https://www.linkedin.com/in/unmaktofficial-3a66a7397"
+              href="https://www.linkedin.com/in/unmaktofficial/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition bg-unmakt-dark-2/20"
