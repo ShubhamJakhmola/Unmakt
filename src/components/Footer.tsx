@@ -4,17 +4,10 @@ import { useState } from 'react';
 const quickLinks = [
   { label: 'Home', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })) },
   { label: 'About', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'about' })) },
-  { label: 'Join Community', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'join' })) },
   { label: 'Contact', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'contact' })) },
-  { label: 'Privacy Policy', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'privacy' })) }
+  { label: 'Privacy Policy', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'privacy' })) },
+  { label: 'Terms & Conditions', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'terms' })) }
 ];
-
-const scrollToServices = () => {
-  window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' }));
-  setTimeout(() => {
-    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 200);
-};
 
 export default function Footer() {
   const [subscribeEmail, setSubscribeEmail] = useState('');
@@ -63,19 +56,21 @@ export default function Footer() {
             Strategy, design, engineering, marketing, and cloud expertise inside one collaborative collective.
           </p>
           <div className="flex gap-4">
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition bg-unmakt-dark-2/20"
-              >
+            <a
+              href="https://www.linkedin.com/in/unmaktofficial-3a66a7397"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition bg-unmakt-dark-2/20"
+              aria-label="Unmakt on LinkedIn"
+            >
               <Linkedin size={18} />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/UnmaktInfo"
               target="_blank"
-                rel="noopener noreferrer"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition bg-unmakt-dark-2/20"
+              aria-label="Unmakt on X (Twitter)"
             >
               <Twitter size={18} />
             </a>
@@ -89,17 +84,12 @@ export default function Footer() {
               <li key={link.label}>
                 <button
                   onClick={link.action}
-                  className="hover:text-white transition"
+                  className="hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2 rounded"
                 >
                   {link.label}
                 </button>
               </li>
             ))}
-            <li>
-              <button onClick={scrollToServices} className="hover:text-white transition">
-                Services
-              </button>
-            </li>
             {/* external Discord invite removed here to avoid duplicate 'Join Community' — social icons remain */}
           </ul>
         </div>

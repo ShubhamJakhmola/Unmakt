@@ -53,8 +53,8 @@ export default function JoinCommunity() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-unmakt-1/10 via-white to-unmakt-3/10 pt-24 pb-16 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="tech-surface min-h-screen pt-24 pb-16 px-4">
+      <div className="tech-surface__inner max-w-4xl mx-auto">
         <div className="text-center space-y-6 mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white mx-auto">
             <UserPlus size={32} />
@@ -76,7 +76,7 @@ export default function JoinCommunity() {
           </a>
         </div>
 
-          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+          <div className="bg-white/90 backdrop-blur rounded-3xl shadow-xl p-8 md:p-12 border border-white/60">
           {status === 'success' ? (
             <div className="text-center space-y-6 py-12">
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 text-green-600 mx-auto">
@@ -222,15 +222,15 @@ export default function JoinCommunity() {
         </div>
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
+          <div className="bg-white/80 backdrop-blur rounded-2xl shadow-lg p-6 text-center border border-white/60">
             <div className="text-3xl font-bold text-unmakt-2 mb-2">Flexible</div>
             <p className="text-gray-600">Work on your own schedule</p>
           </div>
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
+          <div className="bg-white/80 backdrop-blur rounded-2xl shadow-lg p-6 text-center border border-white/60">
             <div className="text-3xl font-bold text-unmakt-3 mb-2">Collaborative</div>
             <p className="text-gray-600">Join a community of experts</p>
           </div>
-          <div className="bg-white rounded-2xl shadow-lg p-6 text-center">
+          <div className="bg-white/80 backdrop-blur rounded-2xl shadow-lg p-6 text-center border border-white/60">
             <div className="text-3xl font-bold text-unmakt-2 mb-2">Rewarding</div>
             <p className="text-gray-600">Work on exciting projects</p>
           </div>

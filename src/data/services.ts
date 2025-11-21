@@ -6,7 +6,7 @@ export const services: Service[] = [
     title: 'Website Development',
     description: 'Crafting stunning, responsive websites that drive results and deliver exceptional user experiences.',
     icon: 'code',
-    image: 'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?auto=format&fit=crop&w=1200&q=80&fm=webp',
     features: [
       'Custom Web Applications',
       'Responsive Design',
@@ -19,7 +19,7 @@ export const services: Service[] = [
     title: 'Digital Marketing',
     description: 'Elevate your brand with data-driven marketing strategies that convert.',
     icon: 'megaphone',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80&fm=webp',
     features: [
       'SEO Optimization',
       'Social Media Marketing',

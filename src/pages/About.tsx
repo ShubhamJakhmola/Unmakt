@@ -25,8 +25,8 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-unmakt-1/10 via-white to-unmakt-3/10 pt-24 pb-16 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="tech-surface min-h-screen pt-24 pb-16 px-4">
+      <div className="tech-surface__inner max-w-6xl mx-auto">
         <div className="text-center space-y-6 mb-20">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900">
             About <span className="bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 bg-clip-text text-transparent">Unmakt</span>
@@ -38,8 +38,8 @@ export default function About() {
         </div>
 
         <div className="mb-20 bg-white rounded-3xl shadow-xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
-          <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Our Story</h2>
+          <div className="space-y-4 text-gray-600 text-lg leading-relaxed text-justify md:text-left">
             <p>
               Unmakt was founded on the belief that exceptional digital solutions require
               more than just technical expertise—they require a deep understanding of business

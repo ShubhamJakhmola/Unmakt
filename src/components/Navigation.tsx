@@ -1,5 +1,5 @@
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { services } from '../data/services';
 
 interface NavigationProps {
@@ -13,6 +13,8 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const servicesButtonRef = useRef<HTMLButtonElement | null>(null);
+  const servicesMenuRef = useRef<HTMLDivElement | null>(null);
 
   const navItems = [
     { id: 'home', label: 'Home' },
@@ -41,6 +43,34 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleClickAway = (event: MouseEvent) => {
+      if (!servicesOpen) return;
+      const target = event.target as Node;
+      if (
+        servicesButtonRef.current?.contains(target) ||
+        servicesMenuRef.current?.contains(target)
+      ) {
+        return;
+      }
+      setServicesOpen(false);
+    };
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setServicesOpen(false);
+        setMobileServicesOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickAway);
+    document.addEventListener('keyup', handleEscape);
+    return () => {
+      document.removeEventListener('mousedown', handleClickAway);
+      document.removeEventListener('keyup', handleEscape);
+    };
+  }, [servicesOpen]);
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
@@ -56,7 +86,17 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
             className="flex items-center gap-3"
             aria-label="Go to Unmakt home"
           >
-            <img src="/Unmakt.png" alt="Unmakt logo" className="h-12 md:h-16 w-auto drop-shadow-xl mix-blend-multiply" />
+            <img
+              src="/Unmakt.png"
+              alt="Unmakt logo"
+              width={128}
+              height={128}
+              className={`h-12 md:h-16 w-auto transition-all duration-500 ease-out ${
+                scrolled
+                  ? 'mix-blend-normal scale-110 drop-shadow-[0_0_35px_rgba(14,165,233,0.85)] saturate-150 brightness-110'
+                  : 'mix-blend-multiply drop-shadow-lg'
+              }`}
+            />
           </button>
 
           <div className={`hidden md:flex items-center space-x-8 transition-colors ${scrolled ? 'text-white' : 'text-gray-900'}`}>
@@ -79,7 +119,14 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
               onMouseLeave={() => setServicesOpen(false)}
             >
               <button
-                className="flex items-center gap-2 text-current hover:text-unmakt-2 font-semibold transition-colors"
+                ref={servicesButtonRef}
+                type="button"
+                className="flex items-center gap-2 text-current hover:text-unmakt-2 font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2 rounded"
+                aria-haspopup="menu"
+                aria-expanded={servicesOpen}
+                aria-controls="desktop-services-menu"
+                onClick={() => setServicesOpen((prev) => !prev)}
+                onFocus={() => setServicesOpen(true)}
               >
                 Services
                 <ChevronDown
@@ -89,12 +136,19 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
               </button>
               {servicesOpen && (
                 <div className="absolute right-0 top-full pt-3">
-                  <div className="w-64 rounded-2xl border border-gray-100 bg-white shadow-2xl p-4 space-y-1">
+                  <div
+                    id="desktop-services-menu"
+                    ref={servicesMenuRef}
+                    role="menu"
+                    aria-label="Services"
+                    className="w-64 rounded-2xl border border-gray-100 bg-white shadow-2xl p-4 space-y-1 text-gray-900"
+                  >
                     {services.map((service) => (
                       <button
                           key={service.id}
                           onClick={() => handleServicesNavigate(`service-${service.id}`)}
-                          className="block w-full text-left px-3 py-2 rounded-xl text-sm text-current hover:bg-unmakt-1/10 hover:text-unmakt-2 transition"
+                          className="block w-full text-left px-3 py-2 rounded-xl text-sm text-gray-900 hover:bg-unmakt-1/10 hover:text-unmakt-2 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2"
+                          role="menuitem"
                         >
                           {service.title}
                         </button>
@@ -149,7 +203,9 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
             <div className="border-t border-gray-100 pt-4">
               <button
                 onClick={() => setMobileServicesOpen((prev) => !prev)}
-                className="flex w-full items-center justify-between px-4 py-2 rounded-lg text-unmakt-dark hover:bg-unmakt-1/10"
+                className="flex w-full items-center justify-between px-4 py-2 rounded-lg text-unmakt-dark hover:bg-unmakt-1/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2"
+                aria-expanded={mobileServicesOpen}
+                aria-controls="mobile-services-menu"
               >
                 <span>Services</span>
                 <ChevronDown
@@ -158,12 +214,12 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
                 />
               </button>
               {mobileServicesOpen && (
-                <div className="mt-2 space-y-2">
+                <div id="mobile-services-menu" className="mt-2 space-y-2">
                   {services.map((service) => (
                     <button
                       key={service.id}
                       onClick={() => handleServicesNavigate(`service-${service.id}`)}
-                      className="block w-full text-left px-6 py-2 rounded-lg text-gray-600 hover:bg-blue-50"
+                      className="block w-full text-left px-6 py-2 rounded-lg text-gray-600 hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2"
                     >
                       {service.title}
                     </button>

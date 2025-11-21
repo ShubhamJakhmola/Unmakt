@@ -31,15 +31,15 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 pt-24 pb-16 px-4">
-      <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    <div className="tech-surface min-h-screen pt-24 pb-16 px-4">
+      <div className="tech-surface__inner max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-xs uppercase tracking-[0.3em]">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 text-orange-700 text-xs uppercase tracking-[0.3em]">
             Secure access
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
             Manage your{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 bg-clip-text text-transparent">
               Unmakt
             </span>{' '}
             workspace
@@ -48,20 +48,20 @@ export default function Login() {
             Admins can oversee incoming applications and manage collaborators. Members get a personalized portal to stay connected with active projects.
           </p>
           <div className="grid grid-cols-2 gap-4">
-            <div className="p-4 rounded-2xl border border-gray-100 bg-white shadow-sm">
-              <ShieldCheck className="text-blue-600 mb-3" />
+            <div className="p-4 rounded-2xl border border-white/60 bg-white/90 backdrop-blur shadow-sm">
+              <ShieldCheck className="text-unmakt-2 mb-3" />
               <p className="font-semibold text-gray-900">Admin Console</p>
               <p className="text-sm text-gray-500">Approve talent, review community applications.</p>
             </div>
-            <div className="p-4 rounded-2xl border border-gray-100 bg-white shadow-sm">
-              <UserPlus className="text-cyan-600 mb-3" />
+            <div className="p-4 rounded-2xl border border-white/60 bg-white/90 backdrop-blur shadow-sm">
+              <UserPlus className="text-unmakt-3 mb-3" />
               <p className="font-semibold text-gray-900">Member Workspace</p>
               <p className="text-sm text-gray-500">Track opportunities and collaborate on briefs.</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+        <div className="bg-white/95 backdrop-blur rounded-3xl shadow-xl p-8 border border-white/70">
           <div className="flex gap-2 mb-8 bg-gray-100 rounded-full p-1">
             <button
               onClick={() => setMode('login')}
@@ -91,7 +91,7 @@ export default function Login() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-11 pr-4 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full pl-11 pr-4 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-unmakt-2 outline-none"
                   placeholder="you@unmakt.com"
                 />
               </div>
@@ -107,7 +107,7 @@ export default function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={8}
-                  className="w-full pl-11 pr-4 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full pl-11 pr-4 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-unmakt-2 outline-none"
                   placeholder="At least 8 characters"
                 />
               </div>
@@ -120,7 +120,7 @@ export default function Login() {
                   type="text"
                   value={adminCode}
                   onChange={(e) => setAdminCode(e.target.value)}
-                  className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-4 py-3 rounded-2xl border border-gray-200 focus:ring-2 focus:ring-unmakt-2 outline-none"
                   placeholder="Enter provided admin code"
                 />
               </label>
@@ -137,7 +137,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={status === 'submitting' || loading}
-              className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold hover:shadow-lg transition disabled:opacity-60 disabled:cursor-not-allowed"
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white font-semibold hover:shadow-lg transition disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {status === 'submitting' ? 'Processing…' : mode === 'login' ? 'Login' : 'Create account'}
             </button>
