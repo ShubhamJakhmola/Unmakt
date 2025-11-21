@@ -1,12 +1,12 @@
 import { Mail, MapPin, Phone, Linkedin, Twitter } from 'lucide-react';
 import { useState } from 'react';
 
-const COMMUNITY_INVITE_URL = 'https://discord.gg/hHvRzMxw';
-
 const quickLinks = [
   { label: 'Home', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })) },
   { label: 'About', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'about' })) },
-  { label: 'Join Community', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'join' })) }
+  { label: 'Join Community', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'join' })) },
+  { label: 'Contact', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'contact' })) },
+  { label: 'Privacy Policy', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'privacy' })) }
 ];
 
 const scrollToServices = () => {
@@ -64,17 +64,17 @@ export default function Footer() {
           </p>
           <div className="flex gap-4">
               <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noreferrer"
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition bg-unmakt-dark-2/20"
-            >
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition bg-unmakt-dark-2/20"
+              >
               <Linkedin size={18} />
             </a>
             <a
               href="https://twitter.com"
               target="_blank"
-              rel="noreferrer"
+                rel="noopener noreferrer"
               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:border-white transition bg-unmakt-dark-2/20"
             >
               <Twitter size={18} />
@@ -100,16 +100,7 @@ export default function Footer() {
                 Services
               </button>
             </li>
-            <li>
-              <a
-                href={COMMUNITY_INVITE_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-white transition inline-flex items-center gap-2"
-              >
-                Join Community
-              </a>
-            </li>
+            {/* external Discord invite removed here to avoid duplicate 'Join Community' — social icons remain */}
           </ul>
         </div>
 

@@ -69,7 +69,7 @@ export default function JoinCommunity() {
           <a
             href="https://discord.gg/hHvRzMxw"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white font-semibold hover:shadow-lg transition"
           >
             Join our Discord community

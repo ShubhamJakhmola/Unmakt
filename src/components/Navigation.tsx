@@ -64,7 +64,7 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
               <button
                 key={item.id}
                 onClick={() => handleNavigate(item.id)}
-                className={`transition-colors ${
+                className={`transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2 rounded px-1 py-0.5 ${
                   currentPage === item.id
                     ? 'text-unmakt-2 font-semibold'
                     : 'text-current hover:text-unmakt-2'
@@ -114,7 +114,10 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
+            className="md:hidden p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2 rounded"
+            aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

@@ -32,7 +32,7 @@ export const services: Service[] = [
     title: 'Cloud Solutions',
     description: 'Reliable, scalable cloud infrastructure to power your digital presence.',
     icon: 'cloud',
-    image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80&fm=webp',
     features: [
       'Cloud Migration',
       'Managed Hosting',
@@ -45,7 +45,7 @@ export const services: Service[] = [
     title: 'Analytics & AI Automation',
     description: 'Transform your data into actionable insights with intelligent automation solutions.',
     icon: 'brain-circuit',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80&fm=webp',
     features: [
       'Predictive Analytics',
       'Process Automation',

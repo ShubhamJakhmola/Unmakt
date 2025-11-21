@@ -25,11 +25,11 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 pt-24 pb-16 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-unmakt-1/10 via-white to-unmakt-3/10 pt-24 pb-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center space-y-6 mb-20">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900">
-            About <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Unmakt</span>
+            About <span className="bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 bg-clip-text text-transparent">Unmakt</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             We are a collective of passionate experts united by a common goal:
@@ -66,7 +66,7 @@ export default function About() {
                 key={index}
                 className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-600 text-white mb-4">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white mb-4">
                   <value.icon size={28} />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -80,7 +80,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-3xl shadow-xl p-8 md:p-12 text-white text-center">
+        <div className="bg-gradient-to-br from-unmakt-1 via-unmakt-2 to-unmakt-3 rounded-3xl shadow-xl p-8 md:p-12 text-white text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Join Our Growing Community
           </h2>
@@ -90,8 +90,8 @@ export default function About() {
           <a
             href="https://discord.gg/hHvRzMxw"
             target="_blank"
-            rel="noreferrer"
-            className="inline-flex justify-center px-8 py-4 bg-white text-blue-600 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all"
+            rel="noopener noreferrer"
+            className="inline-flex justify-center px-8 py-4 bg-white text-unmakt-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2"
           >
             Join our Discord
           </a>
