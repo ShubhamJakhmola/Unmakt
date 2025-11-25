@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 const quickLinks = [
   { label: 'Home', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })) },
-  { label: 'About us', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'about' })) },
-  { label: 'Contact us', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'contact' })) },
+  { label: 'About Us', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'about' })) },
+  { label: 'Contact Us', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'contact' })) },
   { label: 'Privacy Policy', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'privacy' })) },
   { label: 'Terms & Conditions', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'terms' })) }
 ];
@@ -103,7 +103,7 @@ export default function Footer() {
             </li>
             <li className="flex gap-3">
               <Phone size={18} className="text-unmakt-2 flex-shrink-0 mt-0.5" />
-              +1 (415) 555-0149
+              +1 (555)123-4567
             </li>
             <li className="flex gap-3">
               <MapPin size={18} className="text-unmakt-2 flex-shrink-0 mt-0.5" />

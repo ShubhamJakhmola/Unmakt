@@ -42,7 +42,7 @@ export default function About() {
           <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
             <p>
               Unmakt was founded on the belief that exceptional digital solutions require
-              more than just technical expertise—they require a deep understanding of business
+              more than just technical expertise they require a deep understanding of business
               needs, creative problem-solving, and a commitment to excellence.
             </p>
             <p>
