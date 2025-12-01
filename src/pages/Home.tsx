@@ -34,7 +34,6 @@ const testimonials = [
 ];
 
 export default function Home() {
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [activeWord, setActiveWord] = useState(0);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
@@ -42,16 +41,6 @@ export default function Home() {
   // Create extended testimonials array for infinite loop effect
   const extendedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -102,17 +91,12 @@ export default function Home() {
     }
   };
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
 
   return (
     <div className="bg-white">
-      <div
-        className="fixed top-16 left-0 h-1 bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 transition-all duration-300 z-40"
-        style={{ width: `${scrollProgress}%` }}
-      />
-
       <section className="relative min-h-screen flex items-center px-4 pt-24 overflow-hidden bg-slate-950 text-white">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-32 -right-20 w-96 h-96 bg-unmakt-2/40 blur-3xl rounded-full" />
@@ -141,7 +125,7 @@ export default function Home() {
                 View Services
               </button>
               <button
-                onClick={() => window.dispatchEvent(new CustomEvent('navigate', { detail: 'contact' }))}
+                onClick={() => window.open('https://calendly.com/unmakt-info/30min', '_blank', 'noopener,noreferrer')}
                 className="w-full sm:w-auto inline-flex justify-center px-6 sm:px-8 py-3 sm:py-4 border border-white/30 text-white rounded-full font-semibold hover:border-white/70 transition-all text-center"
               >
                 Book a strategy call
@@ -179,7 +163,7 @@ export default function Home() {
         </div>
       </section>
 
-      {services.map((service, index) => (
+      {services.map((service, index: number) => (
         <ServiceCard key={service.id} service={service} index={index} />
       ))}
 
@@ -201,16 +185,7 @@ export default function Home() {
                 {extendedTestimonials.map((testimony, idx) => (
                   <div key={`${testimony.id}-${idx}`} className="w-full md:w-1/2 flex-shrink-0 px-3">
                     <article
-                      className="bg-white rounded-3xl shadow-xl p-6 md:p-8 flex flex-col gap-6 border border-white/50 transition-all duration-300 hover:shadow-2xl hover:border-unmakt-2/50 hover:scale-[1.02] group h-full"
-                      style={{
-                        boxShadow: '0 10px 40px rgba(0,0,0,0.1)'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.boxShadow = '0 20px 60px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.2)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.boxShadow = '0 10px 40px rgba(0,0,0,0.1)';
-                      }}
+                      className="rounded-3xl border border-gray-200 p-6 md:p-8 flex flex-col gap-6 transition-all duration-300 bg-white hover:border-unmakt-2/40 group h-full"
                     >
                       <div className="flex items-center gap-4">
                         <img

@@ -3,6 +3,7 @@ import { Service } from '../types';
 export const services: Service[] = [
   {
     id: 1,
+    slug: 'service-website-development',
     title: 'Website Development',
     description: 'Crafting stunning, responsive websites that drive results and deliver exceptional user experiences.',
     icon: 'code',
@@ -16,6 +17,7 @@ export const services: Service[] = [
   },
   {
     id: 2,
+    slug: 'service-digital-marketing',
     title: 'Digital Marketing',
     description: 'Elevate your brand with data-driven marketing strategies that convert.',
     icon: 'megaphone',
@@ -29,6 +31,7 @@ export const services: Service[] = [
   },
   {
     id: 3,
+    slug: 'service-cloud-solutions',
     title: 'Cloud Solutions',
     description: 'Reliable, scalable cloud infrastructure to power your digital presence.',
     icon: 'cloud',
@@ -42,6 +45,7 @@ export const services: Service[] = [
   },
   {
     id: 4,
+    slug: 'service-analytics-automation',
     title: 'Analytics & AI Automation',
     description: 'Transform your data into actionable insights with intelligent automation solutions.',
     icon: 'brain-circuit',

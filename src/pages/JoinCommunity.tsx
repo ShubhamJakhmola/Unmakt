@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { UserPlus, CheckCircle, AlertCircle } from 'lucide-react';
-import { supabase, isSupabaseConfigured } from '../lib/supabase';
+import { supabase } from '../lib/supabase';
 import { CommunityApplication } from '../types';
 
 export default function JoinCommunity() {
@@ -67,7 +67,7 @@ export default function JoinCommunity() {
             Join our collective of experts and collaborate on exciting projects.
           </p>
           <a
-            href="https://discord.gg/hHvRzMxw"
+            href="https://discord.gg/DQBZXCSTh"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white font-semibold hover:shadow-lg transition"
@@ -95,22 +95,6 @@ export default function JoinCommunity() {
               >
                 Submit Another Application
               </button>
-            </div>
-          ) : !isSupabaseConfigured ? (
-            <div className="text-center space-y-6 py-12">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-yellow-100 text-yellow-600 mx-auto">
-                <AlertCircle size={48} />
-              </div>
-              <h2 className="text-3xl font-bold text-gray-900">
-                Applications Temporarily Offline
-              </h2>
-              <p className="text-xl text-gray-600 max-w-xl mx-auto">
-                We are configuring our application portal. Please reach us at{' '}
-                <a href="mailto:unmakt.info@gmail.com" className="text-blue-600 underline">
-                  unmakt.info@gmail.com
-                </a>{' '}
-                or check back soon.
-              </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">

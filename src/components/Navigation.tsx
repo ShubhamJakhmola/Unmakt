@@ -27,13 +27,10 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
     setMobileMenuOpen(false);
   };
 
-  const handleServicesNavigate = (sectionId: string) => {
-    handleNavigate('home');
+  const handleServicesNavigate = (destination: string) => {
+    handleNavigate(destination);
     setServicesOpen(false);
     setMobileServicesOpen(false);
-    setTimeout(() => {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 250);
   };
 
   useEffect(() => {
@@ -80,7 +77,7 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <button
             onClick={() => handleNavigate('home')}
             className="flex items-center gap-3"
@@ -91,9 +88,9 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
               alt="Unmakt logo"
               width={128}
               height={128}
-              className={`h-12 md:h-16 w-auto transition-all duration-500 ease-out ${
+              className={`h-12 md:h-16 w-auto max-h-16 object-contain transition-all duration-500 ease-out ${
                 scrolled
-                  ? 'mix-blend-normal scale-110 drop-shadow-[0_0_35px_rgba(14,165,233,0.85)] saturate-150 brightness-110'
+                  ? 'mix-blend-normal scale-105 drop-shadow-[0_0_30px_rgba(14,165,233,0.85)] saturate-150 brightness-110'
                   : 'mix-blend-multiply drop-shadow-lg'
               }`}
             />
@@ -146,7 +143,7 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
                     {services.map((service) => (
                       <button
                           key={service.id}
-                          onClick={() => handleServicesNavigate(`service-${service.id}`)}
+                          onClick={() => handleServicesNavigate(service.slug)}
                           className="block w-full text-left px-3 py-2 rounded-xl text-sm text-gray-900 hover:bg-unmakt-1/10 hover:text-unmakt-2 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2"
                           role="menuitem"
                         >
@@ -158,12 +155,14 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
               )}
             </div>
 
-            <button
-              onClick={() => handleNavigate(isAuthenticated ? 'dashboard' : 'login')}
-              className="ml-4 px-4 py-2 rounded-full border border-gray-200 text-sm font-semibold hover:border-unmakt-2 hover:text-unmakt-2 transition"
-            >
-              {isAuthenticated ? 'Dashboard' : 'Login'}
-            </button>
+            {isAuthenticated && (
+              <button
+                onClick={() => handleNavigate('dashboard')}
+                className="ml-4 px-4 py-2 rounded-full border border-gray-200 text-sm font-semibold hover:border-unmakt-2 hover:text-unmakt-2 transition"
+              >
+                Dashboard
+              </button>
+            )}
           </div>
 
           <button
@@ -194,12 +193,14 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={() => handleNavigate(isAuthenticated ? 'dashboard' : 'login')}
-                className="block w-full text-left px-4 py-2 rounded-lg border border-gray-100 font-semibold text-unmakt-dark hover:bg-unmakt-1/10"
-            >
-              {isAuthenticated ? 'Dashboard' : 'Login'}
-            </button>
+            {isAuthenticated && (
+              <button
+                onClick={() => handleNavigate('dashboard')}
+                  className="block w-full text-left px-4 py-2 rounded-lg border border-gray-100 font-semibold text-unmakt-dark hover:bg-unmakt-1/10"
+              >
+                Dashboard
+              </button>
+            )}
             <div className="border-t border-gray-100 pt-4">
               <button
                 onClick={() => setMobileServicesOpen((prev) => !prev)}
@@ -218,7 +219,7 @@ export default function Navigation({ currentPage, onNavigate, isAuthenticated }:
                   {services.map((service) => (
                     <button
                       key={service.id}
-                      onClick={() => handleServicesNavigate(`service-${service.id}`)}
+                      onClick={() => handleServicesNavigate(service.slug)}
                       className="block w-full text-left px-6 py-2 rounded-lg text-gray-600 hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2"
                     >
                       {service.title}

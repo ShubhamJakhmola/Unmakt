@@ -16,18 +16,13 @@ const iconMap = {
 export default function ServiceCard({ service, index }: ServiceCardProps) {
   const Icon = iconMap[service.icon as keyof typeof iconMap];
   const isEven = index % 2 === 0;
-  const sectionId = `service-${service.id}`;
 
   return (
-    <section id={sectionId} className="py-20 px-4">
-      <div
-        className={`max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center ${
-          isEven ? '' : 'lg:grid-flow-dense'
-        }`}
-      >
+    <section id={`service-${service.id}`} className="py-20 px-4">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
         <div className={`space-y-6 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-unmakt-1 via-unmakt-2 to-unmakt-3 text-white shadow-lg shadow-unmakt-2/30">
-            <Icon size={32} />
+            {Icon && <Icon size={32} />}
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
             {service.title}
@@ -42,6 +37,14 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
                 <span className="text-gray-700 text-lg">{feature}</span>
               </div>
             ))}
+          </div>
+          <div>
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('navigate', { detail: service.slug }))}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 text-gray-900 font-semibold hover:border-unmakt-2 hover:text-unmakt-2 transition-all"
+            >
+              Explore this service
+            </button>
           </div>
         </div>
 

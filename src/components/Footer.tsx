@@ -1,6 +1,4 @@
 import { Mail, MapPin, Phone, Linkedin, Twitter } from 'lucide-react';
-import { useState } from 'react';
-
 const quickLinks = [
   { label: 'Home', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'home' })) },
   { label: 'About Us', action: () => window.dispatchEvent(new CustomEvent('navigate', { detail: 'about' })) },
@@ -10,43 +8,6 @@ const quickLinks = [
 ];
 
 export default function Footer() {
-  const [subscribeEmail, setSubscribeEmail] = useState('');
-  const [subscribeStatus, setSubscribeStatus] = useState<'idle'|'sending'|'success'|'error'>('idle');
-  const [subscribeError, setSubscribeError] = useState('');
-
-  const handleSubscribe = async (e?: React.FormEvent) => {
-    if (e && typeof e.preventDefault === 'function') e.preventDefault();
-    if (!subscribeEmail) return;
-    setSubscribeStatus('sending');
-    setSubscribeError('');
-    try {
-      const res = await fetch('/.netlify/functions/send-mailjet', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'subscribe', email: subscribeEmail })
-      });
-
-      const text = await res.text();
-      let json: any = {};
-      try {
-        json = text ? JSON.parse(text) : {};
-      } catch (e) {
-        json = { raw: text };
-      }
-
-      if (!res.ok) {
-        const msg = (json && (json.error || json.message)) || `Subscription failed: ${res.status}`;
-        throw new Error(msg);
-      }
-
-      setSubscribeStatus('success');
-      setSubscribeEmail('');
-    } catch (err) {
-      setSubscribeStatus('error');
-      setSubscribeError(err instanceof Error ? err.message : 'Unable to subscribe');
-    }
-  };
-
   return (
     <footer className="bg-gray-950 text-white">
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
@@ -113,27 +74,18 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold mb-4">Stay in the loop</h3>
+          <h3 className="text-lg font-semibold mb-4">Ready to talk?</h3>
           <p className="text-gray-400 mb-4">
-            Get quarterly insights on emerging tech, AI automation, and growth tactics.
+            Share your roadmap and we’ll assemble the right squad for a tailored plan.
           </p>
-          <form className="space-y-3" onSubmit={(e) => handleSubscribe(e)}>
-            <input
-              type="email"
-              placeholder="Email address"
-              value={subscribeEmail}
-              onChange={(e) => setSubscribeEmail(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:ring-2 focus:ring-unmakt-2 outline-none"
-            />
-            <button
-              type="submit"
-              className="w-full px-4 py-3 rounded-xl bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 font-semibold hover:shadow-lg transition"
-            >
-              {subscribeStatus === 'sending' ? 'Subscribing...' : 'Subscribe'}
-            </button>
-            {subscribeStatus === 'success' && <div className="text-sm text-green-400">Subscribed — thank you!</div>}
-            {subscribeStatus === 'error' && <div className="text-sm text-red-400">{subscribeError}</div>}
-          </form>
+          <a
+            href="https://calendly.com/unmakt-info/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full justify-center px-4 py-3 rounded-xl bg-gradient-to-r from-unmakt-1 via-unmakt-2 to-unmakt-3 font-semibold hover:shadow-lg transition text-white text-center"
+          >
+            Book a discovery call
+          </a>
         </div>
       </div>
       <div className="border-t border-white/10 py-6 text-center text-gray-500 text-sm">

@@ -54,7 +54,7 @@ export default function Contact() {
   return (
     <div className="tech-surface min-h-screen pt-24 pb-16 px-4">
       <div className="tech-surface__inner max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">Email the team</h1>
+        <h1 className="text-4xl font-bold mb-6 text-center text-gray-900">Contact us</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4 bg-white/90 backdrop-blur-xl rounded-2xl p-8 shadow-xl border border-white/60">
           <div>

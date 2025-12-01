@@ -117,7 +117,7 @@ export default function About() {
           </p>
 
           <a
-            href="https://discord.gg/hHvRzMxw"
+            href="https://discord.gg/DQBZXCSTh"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex justify-center px-8 py-4 bg-white text-unmakt-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-unmakt-2"

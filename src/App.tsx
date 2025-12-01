@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import Navigation from './components/Navigation';
+import ScrollProgressBar from './components/ScrollProgressBar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -11,8 +12,10 @@ import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import { useAuth } from './context/AuthContext';
+import ServiceDetailPage from './pages/ServiceDetailPage';
+import { serviceDetailContent, serviceDetailSlugs } from './data/serviceDetails';
 
-const validPages = new Set([
+const basePages = [
   'home',
   'about',
   'join',
@@ -21,7 +24,9 @@ const validPages = new Set([
   'terms',
   'login',
   'dashboard'
-]);
+];
+
+const validPages = new Set([...basePages, ...serviceDetailSlugs]);
 
 const resolvePageFromLocation = () => {
   if (typeof window === 'undefined') return 'home';
@@ -122,8 +127,10 @@ function App() {
         return <Login />;
       case 'dashboard':
         return <Dashboard />;
-      case '404':
       default:
+        if (serviceDetailContent[currentPage]) {
+          return <ServiceDetailPage detail={serviceDetailContent[currentPage]} />;
+        }
         return <NotFound />;
     }
   };
@@ -135,6 +142,7 @@ function App() {
         onNavigate={(page) => navigateTo(page)}
         isAuthenticated={Boolean(user)}
       />
+      <ScrollProgressBar />
       {renderPage()}
       <Footer />
     </div>
