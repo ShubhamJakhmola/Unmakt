@@ -70,7 +70,7 @@ export default function Contact() {
               type="email"
               inputMode="email"
               autoComplete="email"
-              pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
               title="Enter a valid email such as name@example.com"
               className="w-full px-4 py-3 rounded-xl border border-gray-300"
               required
